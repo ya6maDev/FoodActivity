@@ -10,7 +10,7 @@ import com.FoodActivity.backend.model.FoodActivity;
 import com.FoodActivity.backend.service.FoodActivityService;
 
 /**
- * ログインコントローラー
+ * FoodActivity コントローラー
  *
  * @author y5a1m5a
  *

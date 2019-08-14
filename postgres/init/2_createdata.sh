@@ -18,6 +18,8 @@ INSERT INTO USERS VALUES
  , (3,'hanako','hanako@gmail.com','password','system', now(),'system', now())
  ;
 
+SELECT setval('users_user_id_seq', (SELECT MAX(USER_ID) FROM USERS));
+
 CREATE TABLE FOOD_ACTIVITY (
 id SERIAL PRIMARY KEY
 , name VARCHAR(255)
@@ -33,5 +35,7 @@ INSERT INTO FOOD_ACTIVITY VALUES
  , (2,'test','test','system', now(),'system', now())
  , (3,'test','test','system', now(),'system', now())
  ;
+
+SELECT setval('food_activity_id_seq', (SELECT MAX(ID) FROM FOOD_ACTIVITY));
 
 EOSQL

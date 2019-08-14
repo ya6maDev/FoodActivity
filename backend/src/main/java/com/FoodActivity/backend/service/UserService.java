@@ -11,9 +11,42 @@ import com.FoodActivity.backend.model.User;
  */
 public interface UserService {
 
-  /** 全件検索 */
+  /**
+   * 全件検索
+   *
+   * @return ユーザーリスト
+   */
   public abstract List<User> findAll();
 
-  /** Eメールをキーとして検索 */
+  /**
+   * Eメールをキーとして検索
+   *
+   * @param email Eメール
+   * @return ユーザー
+   */
   public abstract User findByEmail(String email);
+
+  /**
+   * 新規登録
+   *
+   * @param user 登録するユーザー
+   * @return 登録したユーザー
+   */
+  public User insert(User user);
+
+  /**
+   * 更新
+   *
+   * @param user 更新するユーザー
+   * @return 更新したユーザー
+   */
+  public User update(User user);
+
+  /**
+   * 更新
+   *
+   * @param user 更新するユーザー
+   * @return 更新したユーザー
+   */
+  public void delete(long id);
 }

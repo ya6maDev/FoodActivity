@@ -2,7 +2,7 @@
   <div>
     <div>
       <b-navbar toggleable="lg" type="dark" variant="info">
-        <b-navbar-brand href="#">Food Activity</b-navbar-brand>
+        <b-navbar-brand href="/">Food Activity</b-navbar-brand>
 
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -20,8 +20,8 @@
               <template slot="button-content">
                 <em>User</em>
               </template>
-              <b-dropdown-item href="#">Profile</b-dropdown-item>
-              <b-dropdown-item href="#">LogIn</b-dropdown-item>
+              <b-dropdown-item href="/user/:id">Profile</b-dropdown-item>
+              <b-dropdown-item href="/login">LogIn</b-dropdown-item>
               <b-dropdown-item href="#">LogOut</b-dropdown-item>
             </b-nav-item-dropdown>
           </b-navbar-nav>

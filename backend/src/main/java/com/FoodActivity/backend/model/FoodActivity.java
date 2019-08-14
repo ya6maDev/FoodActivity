@@ -17,7 +17,7 @@ public class FoodActivity extends CommonColumn {
 
   /** ID */
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
   /** 名前 */

@@ -19,4 +19,5 @@ public interface UserRepository extends CrudRepository<User, Long> {
 
   /** Eメールをキーとして検索 */
   public abstract User findByEmail(String email);
+
 }
