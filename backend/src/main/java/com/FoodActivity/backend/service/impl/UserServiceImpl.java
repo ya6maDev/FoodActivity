@@ -1,6 +1,7 @@
 package com.FoodActivity.backend.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.FoodActivity.backend.model.User;
@@ -22,6 +23,11 @@ public class UserServiceImpl implements UserService {
   @Override
   public List<User> findAll() {
     return userRepository.findAll();
+  }
+
+  @Override
+  public Optional<User> findByUserId(Long userId) {
+    return userRepository.findById(userId);
   }
 
   @Override

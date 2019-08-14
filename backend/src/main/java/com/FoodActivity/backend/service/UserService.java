@@ -1,6 +1,7 @@
 package com.FoodActivity.backend.service;
 
 import java.util.List;
+import java.util.Optional;
 import com.FoodActivity.backend.model.User;
 
 /**
@@ -17,6 +18,14 @@ public interface UserService {
    * @return ユーザーリスト
    */
   public abstract List<User> findAll();
+
+  /**
+   * ユーザーIDをキーとして検索
+   *
+   * @param userId ユーザーID
+   * @return ユーザー
+   */
+  public abstract Optional<User> findByUserId(Long userId);
 
   /**
    * Eメールをキーとして検索
