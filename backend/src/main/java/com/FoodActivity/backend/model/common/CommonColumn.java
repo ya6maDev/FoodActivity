@@ -27,7 +27,7 @@ public class CommonColumn {
 
   /** 更新ユーザー */
   @Column(name = "update_user")
-  private String updatetUser;
+  private String updateUser;
 
   /** 更新日時 */
   @Column(name = "update_date")
@@ -48,17 +48,17 @@ public class CommonColumn {
    * @param updatetUser
    * @param updateDate
    */
-  public CommonColumn(String insertUser, Date insertDate, String updatetUser, Date updateDate) {
+  public CommonColumn(String insertUser, Date insertDate, String updateUser, Date updateDate) {
     super();
     this.insertUser = insertUser;
     this.insertDate = insertDate;
-    this.updatetUser = updatetUser;
+    this.updateUser = updateUser;
     this.updateDate = updateDate;
   }
 
   @Override
   public String toString() {
-    return "CommonColumn [insertUser=" + insertUser + ", insertDate=" + insertDate
-        + ", updatetUser=" + updatetUser + ", updateDate=" + updateDate + "]";
+    return "CommonColumn [insertUser=" + insertUser + ", insertDate=" + insertDate + ", updateUser="
+        + updateUser + ", updateDate=" + updateDate + "]";
   }
 }
