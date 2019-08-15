@@ -4,20 +4,10 @@
       <MessageArea :message="message" :variant="variant"></MessageArea>
     </div>
     <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-      <b-row class="my-1">
-        <b-col sm="2">
-          <label for="input-small">名前:</label>
-        </b-col>
-        <b-col sm="10">
-          <b-form-input
-            id="input-small"
-            v-model="user.userName"
-            :plaintext="updateFlg"
-            placeholder="Enter your name"
-          ></b-form-input>
-        </b-col>
+      <b-form-group id="input-group-1" label="名前:" label-for="input-1">
+        <b-form-input id="input-1" v-model="user.userName" :plaintext="updateFlg" required placeholder="名前を入力下さい。"></b-form-input>
+      </b-form-group>
 
-      </b-row>
       <div v-if="updateFlg">
         <b-button type="button" variant="primary" @click="onClick">編集</b-button>
       </div>
@@ -33,7 +23,7 @@
 </template>
 
 <script>
-import MessageArea from "~/components/MessageArea.vue";
+import MessageArea from "~/components/common/MessageArea.vue";
 
 export default {
   components: {
