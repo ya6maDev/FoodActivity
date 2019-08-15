@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <div v-show="messageFlg">
       <MessageArea :message="message" :variant="variant"></MessageArea>
     </div>

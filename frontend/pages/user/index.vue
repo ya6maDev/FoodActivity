@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <b-form @submit="onSubmit" @reset="onReset" v-if="show">
       <b-form-group id="input-group-1" label="名前:" label-for="input-1">
         <b-form-input id="input-1" v-model="user.userName" required placeholder="名前を入力下さい。"></b-form-input>

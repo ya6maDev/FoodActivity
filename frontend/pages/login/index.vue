@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <b-form @submit="onSubmit" v-if="show">
       <b-form-group id="input-group-1" label="ユーザーID" label-for="input-1">
         <b-form-input
