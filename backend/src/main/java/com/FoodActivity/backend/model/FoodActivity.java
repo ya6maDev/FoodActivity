@@ -1,5 +1,6 @@
 package com.FoodActivity.backend.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,6 +20,10 @@ public class FoodActivity extends CommonColumn {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
+
+  /** ユーザーID */
+  @Column(name = "user_id")
+  private Long userId;
 
   /** 名前 */
   private String name;
@@ -40,14 +45,16 @@ public class FoodActivity extends CommonColumn {
    * @param description
    * @param photo
    */
-  public FoodActivity(String name, String description) {
+  public FoodActivity(Long userId, String name, String description) {
     super();
+    this.userId = userId;
     this.name = name;
     this.description = description;
   }
 
   @Override
   public String toString() {
-    return "FoodActivity [id=" + id + ", name=" + name + ", description=" + description + "]";
+    return "FoodActivity [id=" + id + ", userId=" + userId + ", name=" + name + ", description="
+        + description + "]";
   }
 }

@@ -22,6 +22,7 @@ SELECT setval('users_user_id_seq', (SELECT MAX(USER_ID) FROM USERS));
 
 CREATE TABLE FOOD_ACTIVITY (
 id SERIAL PRIMARY KEY
+, user_id SERIAL
 , name VARCHAR(255)
 , description VARCHAR(1000)
 , insert_user VARCHAR(255)
@@ -31,9 +32,9 @@ id SERIAL PRIMARY KEY
 );
 
 INSERT INTO FOOD_ACTIVITY VALUES
- (1,'test','test','system', now(),'system', now())
- , (2,'test','test','system', now(),'system', now())
- , (3,'test','test','system', now(),'system', now())
+ (1,1,'test','test','system', now(),'system', now())
+ , (2,1,'test','test','system', now(),'system', now())
+ , (3,1,'test','test','system', now(),'system', now())
  ;
 
 SELECT setval('food_activity_id_seq', (SELECT MAX(ID) FROM FOOD_ACTIVITY));
