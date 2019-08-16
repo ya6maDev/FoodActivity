@@ -1,27 +1,31 @@
 <template>
   <div class="container">
-    <FoodActivityForm></FoodActivityForm>
+    <b-container class="bv-example-row">
+      <b-row>
+        <b-col>Side menu Area</b-col>
+        <b-col cols="8">
+          <!-- Tweet 投稿フォーム -->
+          <FoodActivityForm></FoodActivityForm>
 
-    <div v-for="foodActivity in foodActivitys" v-bind:key="foodActivity.id">
-      <b-card :title="foodActivity.name" tag="article" class="mb-2">
-        <!-- Tweet -->
-        <b-card-text>{{ foodActivity.tweet }}</b-card-text>
-        <!-- 詳細リンク -->
-        <a href="/foodActivity/:foodActivity.id" class="card-link">詳細</a>
-        <div slot="footer">
-          <small class="text-muted">更新日 : {{ foodActivity.updateDate }}</small>
-        </div>
-      </b-card>
-    </div>
+          <!-- Tweet Cardリスト -->
+          <div v-for="foodActivity in foodActivitys" v-bind:key="foodActivity.id">
+            <FoodActivityCard :foodActivity="foodActivity"></FoodActivityCard>
+          </div>
+        </b-col>
+        <b-col>Trend Area</b-col>
+      </b-row>
+    </b-container>
   </div>
 </template>
 
 <script>
 import FoodActivityForm from "~/components/foodActivity/Form.vue";
+import FoodActivityCard from "~/components/foodActivity/Card.vue";
 
 export default {
   components: {
-    FoodActivityForm
+    FoodActivityForm,
+    FoodActivityCard
   },
   data() {
     return {

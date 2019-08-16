@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div>
     <div v-show="messageFlg">
       <MessageArea :message="message" :variant="variant"></MessageArea>
     </div>
@@ -41,7 +41,6 @@ export default {
   methods: {
     onSubmit(evt) {
       evt.preventDefault();
-      console.log(this.foodActivity);
       this.$store
         .dispatch("foodActivity/insertFoodActivityAction", {
           foodActivity: this.foodActivity
