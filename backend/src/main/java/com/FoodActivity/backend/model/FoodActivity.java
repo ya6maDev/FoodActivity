@@ -25,11 +25,11 @@ public class FoodActivity extends CommonColumn {
   @Column(name = "user_id")
   private Long userId;
 
-  /** 名前 */
-  private String name;
+  /** タイトル */
+  private String title;
 
-  /** 説明 */
-  private String description;
+  /** つぶやき */
+  private String tweet;
 
   /**
    * コンストラクタ
@@ -41,20 +41,20 @@ public class FoodActivity extends CommonColumn {
   /**
    * コンストラクタ
    *
-   * @param name
+   * @param title
    * @param description
    * @param photo
    */
-  public FoodActivity(Long userId, String name, String description) {
+  public FoodActivity(Long userId, String title, String tweet) {
     super();
     this.userId = userId;
-    this.name = name;
-    this.description = description;
+    this.title = title;
+    this.tweet = tweet;
   }
 
   @Override
   public String toString() {
-    return "FoodActivity [id=" + id + ", userId=" + userId + ", name=" + name + ", description="
-        + description + "]";
+    return "FoodActivity [id=" + id + ", userId=" + userId + ", title=" + title + ", tweet=" + tweet
+        + "]";
   }
 }

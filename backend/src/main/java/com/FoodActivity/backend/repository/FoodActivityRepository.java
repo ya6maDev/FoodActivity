@@ -17,4 +17,7 @@ public interface FoodActivityRepository extends CrudRepository<FoodActivity, Lon
   /** 全件検索 */
   public abstract List<FoodActivity> findAll();
 
+  /** ユーザーIDをキーとして、検索 */
+  public abstract List<FoodActivity> findByUserId(Long userId);
+
 }

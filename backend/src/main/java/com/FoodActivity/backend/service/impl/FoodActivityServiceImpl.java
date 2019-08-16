@@ -1,6 +1,8 @@
 package com.FoodActivity.backend.service.impl;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.FoodActivity.backend.model.FoodActivity;
@@ -23,5 +25,37 @@ public class FoodActivityServiceImpl implements FoodActivityService {
   public List<FoodActivity> findAll() {
     return foodActivityRepository.findAll();
   }
+
+  @Override
+  public Optional<FoodActivity> findById(Long id) {
+    return foodActivityRepository.findById(id);
+  }
+
+  @Override
+  public List<FoodActivity> findByUserId(Long userId) {
+    return foodActivityRepository.findByUserId(userId);
+  }
+
+  @Override
+  public FoodActivity insert(FoodActivity foodActivity) {
+    foodActivity.setInsertUser("system");
+    foodActivity.setInsertDate(new Date());
+    foodActivity.setUpdateUser("system");
+    foodActivity.setUpdateDate(new Date());
+    return foodActivityRepository.save(foodActivity);
+  }
+
+  @Override
+  public FoodActivity update(FoodActivity foodActivity) {
+    foodActivity.setUpdateUser("system");
+    foodActivity.setUpdateDate(new Date());
+    return foodActivityRepository.save(foodActivity);
+  }
+
+  @Override
+  public void delete(long id) {
+    foodActivityRepository.deleteById(id);
+  }
+
 
 }

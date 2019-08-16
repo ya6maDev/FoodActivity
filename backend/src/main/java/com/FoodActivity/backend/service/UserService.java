@@ -41,7 +41,7 @@ public interface UserService {
    * @param user 登録するユーザー
    * @return 登録したユーザー
    */
-  public User insert(User user);
+  public abstract User insert(User user);
 
   /**
    * 更新
@@ -49,13 +49,12 @@ public interface UserService {
    * @param user 更新するユーザー
    * @return 更新したユーザー
    */
-  public User update(User user);
+  public abstract User update(User user);
 
   /**
-   * 更新
+   * 削除
    *
-   * @param user 更新するユーザー
-   * @return 更新したユーザー
+   * @param id 削除するユーザー
    */
-  public void delete(long id);
+  public abstract void delete(long id);
 }
