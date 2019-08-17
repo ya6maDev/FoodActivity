@@ -4,7 +4,7 @@
       <MessageArea :message="message" :variant="variant"></MessageArea>
     </div>
     <b-form @submit="onSubmit" v-if="show">
-      <b-form-input id="textarea" v-model="foodActivity.name" placeholder="タイトルをつけよう！"></b-form-input>
+      <b-form-input id="textarea" v-model="foodActivity.title" placeholder="タイトルをつけよう！"></b-form-input>
       <b-form-textarea
         id="textarea"
         v-model="foodActivity.tweet"
@@ -28,7 +28,7 @@ export default {
   data() {
     return {
       foodActivity: {
-        name: "",
+        title: "",
         userId: 2,
         tweet: ""
       },
