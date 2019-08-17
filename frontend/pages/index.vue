@@ -2,7 +2,9 @@
   <div class="container">
     <b-container class="bv-example-row">
       <b-row>
-        <b-col>Side menu Area</b-col>
+        <b-col>
+          <SideMenuBar></SideMenuBar>
+        </b-col>
         <b-col cols="8">
           <!-- Tweet 投稿フォーム -->
           <FoodActivityForm></FoodActivityForm>
@@ -12,7 +14,9 @@
             <FoodActivityCard :foodActivity="foodActivity"></FoodActivityCard>
           </div>
         </b-col>
-        <b-col>Trend Area</b-col>
+        <b-col>
+          <SideTrendBar></SideTrendBar>
+        </b-col>
       </b-row>
     </b-container>
   </div>
@@ -21,11 +25,15 @@
 <script>
 import FoodActivityForm from "~/components/foodActivity/Form.vue";
 import FoodActivityCard from "~/components/foodActivity/Card.vue";
+import SideMenuBar from "~/components/foodActivity/SideMenuBar.vue";
+import SideTrendBar from "~/components/foodActivity/SideTrendBar.vue";
 
 export default {
   components: {
     FoodActivityForm,
-    FoodActivityCard
+    FoodActivityCard,
+    SideMenuBar,
+    SideTrendBar
   },
   data() {
     return {
