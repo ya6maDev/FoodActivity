@@ -2,6 +2,8 @@ package com.FoodActivity.backend.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -31,7 +33,7 @@ public class FoodActivityController {
   @CrossOrigin
   @RequestMapping(value = "/", method = RequestMethod.GET)
   public List<FoodActivity> index() {
-    return foodActivityService.findAll();
+    return foodActivityService.findAll(new Sort(Direction.DESC, "updateDate"));
   }
 
   @CrossOrigin

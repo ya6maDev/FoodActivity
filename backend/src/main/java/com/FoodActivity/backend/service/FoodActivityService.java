@@ -2,6 +2,7 @@ package com.FoodActivity.backend.service;
 
 import java.util.List;
 import java.util.Optional;
+import org.springframework.data.domain.Sort;
 import com.FoodActivity.backend.model.FoodActivity;
 
 /**
@@ -13,7 +14,7 @@ import com.FoodActivity.backend.model.FoodActivity;
 public interface FoodActivityService {
 
   /** 全件検索 */
-  public abstract List<FoodActivity> findAll();
+  public abstract List<FoodActivity> findAll(Sort sort);
 
   /**
    * Idをキーとして検索

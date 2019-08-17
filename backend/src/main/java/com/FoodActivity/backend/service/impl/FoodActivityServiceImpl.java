@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import com.FoodActivity.backend.model.FoodActivity;
 import com.FoodActivity.backend.repository.FoodActivityRepository;
@@ -22,8 +23,8 @@ public class FoodActivityServiceImpl implements FoodActivityService {
   private FoodActivityRepository foodActivityRepository;
 
   @Override
-  public List<FoodActivity> findAll() {
-    return foodActivityRepository.findAll();
+  public List<FoodActivity> findAll(Sort sort) {
+    return foodActivityRepository.findAll(sort);
   }
 
   @Override
