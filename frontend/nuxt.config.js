@@ -1,5 +1,5 @@
 module.exports = {
-  mode: "universal",
+  mode: "spa",
   /*
    ** Headers of the page
    */
@@ -40,21 +40,44 @@ module.exports = {
     "bootstrap-vue/nuxt",
     // Doc: https://axios.nuxtjs.org/usage
     "@nuxtjs/axios",
-    'nuxt-fontawesome'
+    "nuxt-fontawesome",
+    "@nuxtjs/auth"
   ],
   /*
    ** Axios module configuration
    */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+    baseURL: "http://localhost:8080"
   },
   fontawesome: {
     imports: [
       {
-        set: '@fortawesome/free-solid-svg-icons',
-        icons: ['fas']
+        set: "@fortawesome/free-solid-svg-icons",
+        icons: ["fas"]
       }
     ]
+  },
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: {url: '/api/auth/login', method: 'post', propertyName: 'access_token' },
+          logout: false,
+          user: {url: '/api/auth/user', method: 'get', propertyName: false},
+        },
+        tokenRequired: true,
+        tokenType: 'Bearer'
+      },
+      redirect: {
+        login: '/login',
+        logout: '/',
+        home: '/'
+      }
+    }
+  },
+  router: {
+    middleware: ["auth"]
   },
   /*
    ** Build configuration
@@ -64,8 +87,5 @@ module.exports = {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
-  },
-  env: {
-    backendEndPoint: 'http://localhost:8080'
   }
 };

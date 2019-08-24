@@ -15,7 +15,7 @@
             <b-nav-form>
               <b-form-input size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>
               <b-button size="sm" class="my-2 my-sm-0" type="submit">
-                <font-awesome-icon icon="search" class="headder-icon"/>
+                <font-awesome-icon icon="search" class="headder-icon" />
               </b-button>
             </b-nav-form>
 
@@ -28,7 +28,7 @@
               </template>
               <b-dropdown-item href="/user/:id">Profile</b-dropdown-item>
               <b-dropdown-item href="/login">LogIn</b-dropdown-item>
-              <b-dropdown-item href="#">LogOut</b-dropdown-item>
+              <b-dropdown-item href="#" @click="logout">LogOut</b-dropdown-item>
             </b-nav-item-dropdown>
           </b-navbar-nav>
         </b-collapse>
@@ -37,6 +37,17 @@
     <nuxt />
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    async logout() {
+      console.log("logout");
+      await this.$auth.logout();
+    }
+  }
+};
+</script>
 
 <style>
 html {

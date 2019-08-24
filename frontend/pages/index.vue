@@ -27,6 +27,7 @@ import FoodActivityForm from "~/components/foodActivity/Form.vue";
 import FoodActivityCard from "~/components/foodActivity/Card.vue";
 import SideMenuBar from "~/components/foodActivity/SideMenuBar.vue";
 import SideTrendBar from "~/components/foodActivity/SideTrendBar.vue";
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
@@ -42,6 +43,9 @@ export default {
   },
   created() {
     this.getFoodActivitys();
+  },
+  computed: {
+    ...mapGetters(['isAuthenticated', 'loggedInUser'])
   },
   methods: {
     getFoodActivitys: function() {

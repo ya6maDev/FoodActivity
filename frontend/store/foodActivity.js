@@ -1,5 +1,5 @@
 export const state = () => ({
-  foodActivitys: {},
+  foodActivitys: {}
 });
 
 export const mutations = {
@@ -19,25 +19,25 @@ export const mutations = {
 
 export const actions = {
   async getFoodActivityAction({ commit }) {
-    const url = process.env.backendEndPoint + "/api/foodActivity/";
+    const url = "/api/foodActivity/";
 
     const res = await this.$axios.$get(url);
     commit("getFoodActivitys", res);
   },
   async getFoodActivityByIdAction({ commit }, req) {
-    const url = process.env.backendEndPoint + "/api/foodActivity/" + req.id;
+    const url = "/api/foodActivity/";
 
-    const res = await this.$axios.$get(url);
+    const res = await this.$axios.$get(url + req.id);
     commit("getFoodActivityById", res);
   },
   async insertFoodActivityAction({ commit }, req) {
-    const url = process.env.backendEndPoint + "/api/foodActivity/";
+    const url = "/api/foodActivity/";
 
     const res = await this.$axios.$post(url, req.foodActivity);
     commit("insertFoodActivity", res);
   },
   async updateFoodActivityAction({ commit }, req) {
-    const url = process.env.backendEndPoint + "/api/foodActivity/";
+    const url = "/api/foodActivity/";
 
     const res = await this.$axios.$put(url, req.foodActivity);
     commit("updateFoodActivity", res);

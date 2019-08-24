@@ -1,10 +1,12 @@
 package com.FoodActivity.backend.controller;
 
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.FoodActivity.backend.model.User;
 import com.FoodActivity.backend.service.UserService;
@@ -16,15 +18,22 @@ import com.FoodActivity.backend.service.UserService;
  *
  */
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/auth")
 public class LoginController {
 
   @Autowired
-  private UserService usersService;
+  private UserService userService;
 
   @CrossOrigin
-  @GetMapping("/login")
-  public List<User> login() {
-    return usersService.findAll();
+  @RequestMapping(value = "/login", method = RequestMethod.POST)
+  @ResponseBody
+  public ResponseEntity<User> login(@RequestBody User user) {
+    return ResponseEntity.ok(userService.findByEmail(user.getEmail()));
+  }
+
+  @CrossOrigin
+  @RequestMapping(value = "/user", method = RequestMethod.GET)
+  public ResponseEntity<User> findByEmail() {
+    return ResponseEntity.ok(userService.findByEmail("test@gmail.com"));
   }
 }
